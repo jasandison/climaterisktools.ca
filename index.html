@@ -1,0 +1,3715 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ClimateRiskTools.ca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.0/d3.min.js" integrity="sha512-DHgCyc+Wx4mlkVrL3gwr3HnPgjGGcXvWsfULnv8hOFlecYnG6BQkaltjrs2VO8dfiBC6F535s0qRm9rPSwUFhw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style type="text/css">
+			/* No style rules here yet */	  
+html, body {
+        /* display: block; */
+        background-color: #202020;
+      
+      }
+
+body {
+  margin: 0;
+  height: 5500px;
+  overflow-x: hidden;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+td, th {
+    padding: 2px 4px;
+    border: 1px black solid;
+    text-align: center;
+    font-family:'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.stubborn {
+  display: none;
+}
+
+th {
+    font-weight: 600;
+    
+}
+
+
+
+#table, #table2, #table3 {
+  background-color: #eaeaea;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0px;
+
+    /* max-width: 320px; */
+    /* margin-right: 400px;
+    margin-bottom: 1000px;
+    margin-top: 0px; */
+
+    /* position: absolute;
+    top: 4280px; */
+
+    position: relative;
+    left: 525px;
+    bottom: 622px
+}
+
+svg {
+
+
+  /* display: inline-flex;
+    flex-direction: column wrap;
+    justify-content: center;
+    align-content: center; */
+
+  display: block;
+ margin: 0 auto;
+ padding-right: 350px;
+ padding-left: 15px;
+ padding-top: 0;
+
+ max-width: 1060px;
+ max-height: 620px;
+ z-index: 2;
+
+ }
+
+@media screen and (max-width: 1425px) {
+  svg {  
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;   
+    margin: 0 auto;
+    padding: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    bottom: -600px; 
+
+
+
+ }
+}
+
+@media screen and (max-width: 1425px) {
+  #table, #table2, #table3 {   
+position: relative;
+left: 0;
+bottom: 625px;
+ }
+}
+
+#table, #table2, #table3:hover {
+cursor: pointer;
+}
+
+/* table {
+  box-shadow: 0px 0px 5px  #5c5c5c;
+}  */
+
+#headtext {
+  max-width: 60rem;
+  margin-top: -80px;
+  margin: 0 auto;
+  padding: 100px; 
+  padding-top: 15rem;
+  padding-bottom: 3rem;
+  font-family: 'Open Sans', sans-serif;
+  color: #eaeaea;
+  font-size: 55px;
+  font-weight: 700;
+  text-align: center;
+
+}
+
+#headspan {
+  display: block;
+}
+#headstrong {
+  display: block;
+}
+
+#headtext2 {
+  max-width: 155px;
+  color: #eaeaead8;
+  height: 10px;
+  margin: 0 auto;
+  line-height: 1.5;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  font-family:'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  box-sizing: content-box;
+}
+
+#headtext2 a {
+  font-family: 'Open Sans', sans-serif;
+  color: #eaeaead8;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid eaeaead8;
+  line-height: 24px;
+  padding: 0px;
+  margin: 0px;
+  height: 5px;
+
+}
+
+#headtext3 {
+  width: 700px;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  padding: 0 1rem;
+  line-height: 1.5;
+  font-family:'Open Sans', sans-serif;
+  font-size: 17px;
+  color: #eaeaead8;
+  justify-content: center;
+}
+
+#headtext3 a {
+color: #eaeaead8;
+
+}
+
+#ffa {
+  color: #f41b64;
+  border-bottom: 1px solid #f41b64;
+}
+
+#bba {
+  color: #2085c5;
+  border-bottom: 1px solid #2085c5;
+}
+
+#hha {
+  color: #ff9714;
+  border-bottom: 1px solid #ff9714;
+}
+
+.tableau {
+display: flex;
+flex-flow: column wrap;
+justify-content: center;
+align-items: center;
+width: 100%;
+}
+
+
+#emtext {
+    line-height: 1.5;
+  font-family:'Open Sans', sans-serif;
+  font-size: 17px;
+  color: #eaeaea;
+;
+}
+
+#article {
+    background-color: #202020;
+    font-family:'Open Sans', sans-serif;
+    font-size: 17px;
+    width: 650px;
+    color: #eaeaea;
+    max-width: 39rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding-top: 1rem;
+
+    line-height: 1.5;
+}
+
+#article li {
+    background-color: #202020;
+    font-family:'Open Sans', sans-serif;
+    font-size: 17px;
+    width: 650px;
+    color: #eaeaea;
+    max-width: 35rem;
+
+
+}
+
+#article em {
+    background-color: #202020;
+    font-family:'Open Sans', sans-serif;
+    font-size: 17px;
+    width: 800px;
+    color: #eaeaea;
+    max-width: 38rem;
+    margin-bottom: -4rem;
+    text-align: center;
+
+
+}
+
+#footer {
+    background-color: #202020;
+    font-family:'Open Sans', sans-serif;
+    font-size: 15px;
+    width: 650px;
+    color: #cfcfcf;
+    max-width: 40rem;
+    margin: 0 auto;
+    margin-top: -11rem;
+    padding-top: 1rem;
+    position:relative;
+    top: 1000px;
+    border-top: 1px solid #eaeaea;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 1425px) {
+  #footer {   
+position: relative;
+top: 1475px;
+padding-bottom: 1rem;
+ }
+}
+
+
+.tableau {
+    background-color: #202020;
+    font-family:'Open Sans', sans-serif;
+    font-size: 17px;
+    width: 1600px;
+    height: 720px;
+    color: #eaeaea;
+    max-width: 85rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0rem;
+    line-height: 1.5;
+    display: flex;
+flex-flow: column wrap;
+justify-content: center;
+align-items: center;
+width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#nyt {
+  background-color: #202020;
+    font-family:'Open Sans', sans-serif;
+    font-size: 17px;
+    height: 700px;
+    color: #eaeaea;
+    max-width: 62rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding-top: 0rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0rem;
+    line-height: 1.5;
+    display: flex;
+    filter: brightness(98%);
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;	
+  width: 100%;
+	box-shadow: 4px 4px 10px rgba(156, 156, 156, 0.4);
+}
+
+
+/* #header2 {
+	background: linear-gradient(-45deg, #c4124d, #2086c5c5,#e28310 100%);
+	background-size: 100% 100%;
+
+	min-height: 1200px;
+  width: 100%;
+} */
+
+#header2 {
+	background: linear-gradient(-45deg, #cc1150,#da7e0df1, #2085c5 );
+	background-size: 400% 400%;
+	animation: gradient 40s ease infinite;
+	min-height: 1200px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* 
+
+* {
+  box-sizing: border-box;
+}
+
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #202020;
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+} */
+
+.buttonflex {
+    /* background-color: gainsboro; */
+    display: flex;
+    flex-direction: column wrap;
+    justify-content: center;
+    align-content: center;
+    padding-left: 3rem;
+    margin: 0 auto;
+    padding: 25px;
+    padding-top: 1rem;
+    /* overflow: hidden; */
+
+}
+
+.auto {
+  flex: auto;
+}
+
+.tbutton {
+    margin: 1.3em;
+    padding: 0.5em;
+    width: 405px;
+    min-width: 150px;
+    background-color: #f41b64;
+    color: #eaeaea;
+            border-radius: 3px;
+    font-family:'Poppins', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    opacity: 85%;
+    
+    
+}
+
+.tbutton:nth-child(2) {
+  background-color: #2085c5;
+}
+
+.tbutton:nth-child(3) {
+  background-color: #ff9714;
+}
+
+
+.tbutton:hover {
+cursor: pointer;
+}
+
+/*
+.tbutton:nth-child(2).active {
+box-shadow: 0px 0px 7px  #2085c5;
+}
+
+.tbutton:hover:nth-child(3) {
+box-shadow: 0px 0px 7px  #ff9714;
+} */
+
+#landingtooltip, #fftooltip, #bbtooltip, #hhtooltip {
+				position: absolute;
+				width: 200px;
+				height: auto;
+				padding: 10px;
+				background-color: #eaeaea;
+        border: 1px solid #eaeaea;
+        border-radius: 3px;
+        box-shadow: 0 8px 4px -7px #e4e4e4;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				pointer-events: none; 
+        z-index: 1;
+        opacity: 90%;
+        /* transition-duration: 0.5s; */
+        /* THERE COULD BE CLICK EVENTS, SEND VIEWER TO PAGE WHERE FEATURE IS */
+			}
+			
+      #landingtooltip.hidden , #fftooltip.hidden , #bbtooltip.hidden , #hhtooltip.hidden {
+				display: none;
+        /* transition-duration: 0.5s; */
+			}
+			
+      #landingtooltip p, #fftooltip p, #bbtooltip p, #hhtooltip  p {
+				margin: 0;
+        font-family:'Poppins', sans-serif;
+        font-weight: 500;
+        text-align: left;
+				font-size: 14px;
+				line-height: 16px;
+			}
+      #landingtooltip  p:nth-child(1), #fftooltip  p:nth-child(1), #bbtooltip  p:nth-child(1), #hhtooltip  p:nth-child(1) {
+        font-weight: 600;
+			}
+
+  #index, #bbindex, #hhindex {
+  color: black;
+  padding-bottom: 1rem;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+
+}
+
+
+
+#fftoolCap {
+  color: #f41b64;
+
+}
+
+#bbtoolCap {
+  color: #2085c5;
+
+}
+
+#hhtoolCap {
+  color: #d17c13;
+
+}
+
+/* .ffGlow {
+  transition-duration: 0.25s;
+  opacity: 100%;
+  box-shadow: 0px 0px 7px  #f41b64;
+}
+.bbGlow {
+  transition-duration: 0.25s;
+  opacity: 100%;
+  box-shadow: 0px 0px 7px  #2085c5;
+}
+
+.hhGlow {
+  transition-duration: 0.25s;
+  opacity: 100%;
+  box-shadow: 0px 0px 7px  #ff9714;
+}
+
+.ffGlowActive {
+  transition-duration: 0.25s;
+  opacity: 100%;
+  box-shadow: 0px 0px 7px  #f41b64;
+}
+.bbGlowActive {
+  transition-duration: 0.25s;
+  opacity: 100%;
+  box-shadow: 0px 0px 7px  #2085c5;
+}
+.hhGlowActive {
+  transition-duration: 0.25s;
+  opacity: 100%;
+  box-shadow: 0px 0px 7px  #ff9714;
+} */
+
+
+</style>
+<body>
+
+<!-- 
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">FAFinder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="assets/method.html">Method</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Crags</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Discussion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </div> -->
+
+      <!-- <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Jamie Sandison
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+            <a href="*****" target="_blank"></a>
+
+        </div>
+      </div> -->
+
+
+<!-- Text Component -->
+
+
+<div id="header2">
+
+    <div class="flexcontainer"><div id="headtext">Innovation on Climate-related Risk <span id="headspan">Communication in Canada</span> </div>
+ 
+    <div id="headtext2">By <a href="https://www.linkedin.com/in/jamiesandison/">Jamie Sandison</a></div>
+  
+    <div id="headtext3">For most Canadians, climate change can feel like a shapeless threat where dangers exist 
+      somewhere in the future while solutions seem few and far between. Yet, Canadians face growing risks</a> from 
+      climate change in every corner of the country. Yet, Canadians face growing risks From 2010 to 2019, it was estimated that climate change-related 
+      disasters in Canada have caused over <a href=https://climateinstitute.ca/reports/tip-of-the-iceberg/"> $18 billion in private and public damage costs.</a>
+      <br><br>
+      British Columbia experiences severe mudslides due to <a href="https://www.nytimes.com/2021/11/21/canada-flooding-climate-change.html">“climate floods”.</a> The Prairies endure smoke-filled 
+      skies due to <a href="https://newsinteractives.cbc.ca/longform/lytton-feature">“climate wildfires”</a>, a partial effect of 
+      <a href="https://thenarwhal.ca/manitoba-drought-climate-change/">“climate droughts”.</a>
+       The Maritimes consistently live through power outages due to <a href="https://www.saltwire.com/atlantic-canada/news/2022-storms-in-pei-normal-but-normal-now-means-more-intense-storms-climate-scholar-says-100705514/">“climate storms”.</a> However, even in the face of such growing impacts, climate change is mostly viewed as something
+        <a href="https://climatecommunication.yale.edu/publications/personal-climate-stories-can-persuade/">“far away in time and space”.</a> Experts think a key to raising awareness and enhancing 
+        risk perceptions is through innovating our ability to communicate climate change in a meaningful way. 
+
+        <br><br>
+
+        This has given rise to interactive webpages – online tools that show environmental datasets and the human 
+        stories that are connected to them. Interactive webpages about climate change, or climate risk tools, aim
+         to close the distance of climate risk perceptions for everyday people by reshaping danger and complexity
+          into clear narratives through text, maps and visualizations.  Used by the New York Times, Bloomberg and
+           Washington Post, climate risk tools in the United States are abundant, enhancing risk perceptions and
+            pushing decisions towards protective action. In Canada, however, climate risk tools are not nearly as 
+            common, even though many of these risks are multiplied for Canadian communities. What are Canadian tools
+             missing, and what can we observe in current tools elsewhere to address this gap in communication?
+
+         <br><br>
+
+      <em>
+        A graduate student at the University of Ottawa & Institute of the Environment analyzed 14 interactive 
+        climate risk tools to try to answer these questions. An evaluation method to document features, focuses 
+        and trade-offs in these tools is displayed below with the study data and visuals.  
+      </em>
+      <br><br>
+
+    </div>
+
+    <!-- <div id="highline"></div>
+    <div id="floodline"></div>
+    <div id="fireline"></div>
+    <div id="droughtline"></div>
+    <div id="stormline"></div>
+    <div id="faroffline"></div>
+    <div id="unsolvableline"></div> -->
+
+
+    
+
+  </div>
+</div>
+<div class="flexcontainer" id="article">To figure out what research is relevant to climate risk tools, we selected a sample of tools (n=14) and categorized their overall content based on three 
+  fields of literature: risk, climate change communication and data visualization. Next, we created a set of research-supported criteria for each field and listed them into an evaluation
+   matrix, termed for this study as the Climate Risk Tool Matrix. Risk is notoriously complex to define, so we followed the design of models used by the Intergovernmental Panel on 
+   Climate Change, known as <a href="https://unfccc.int/topics/mitigation/workstreams/response-measures/integrated-assessment-models-iams-and-energy-environment-economy-e3-models">integrated assessment models</a>. 
+   These models connect economic and climate data together to assess human influences on the Earth and how likely impacts are to 
+   occur. <em>Economic Risk</em> covers criteria based on historical-looking data while <em>Climate Risk</em> covers criteria based on future-looking analyses. <em>Climate Change Communication</em>  evaluates
+    how tools shape climate messages for individuals, communities, and mass audiences. <em>Data Visualization</em> covers all of the interactive features in climate risk tools and evaluates
+     how the visual nature of tools blend with practical graphs, dropdown menus and map interfaces. 
+  <br><br>
+
+  The sample is a selection of currently available public tools that range both in subject matter (flooding, wildfire, sea-level rise, etc.) and location (United States, Australia, Indonesia, and Canada). As a representative selection, most tools are from the United States, and only two Canadian tools were found and selected. The Climate Risk Tool Matrix was used as a checklist of whether a given criteria in either risk, communication or visualization was either ‘present’ or ‘absent’ in observing the tool. This methodology was used for each tool in the sample to observe features, tool focuses and trade-offs in each category of criteria. The results of the Climate Risk Tool Matrix are illustrated below and show the overall sample performance from best to worst. 
+
+</div>
+
+<!-- <img id="nyt" src="/www/images/nyt.gif" alt="Animated image - New York Times Risk Map"> -->
+
+<div class='tableau' id='viz1649866667866' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RiskToolSheet2Dark&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='RiskToolSheet2Dark&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RiskToolSheet2Dark&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1649866667866');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='520px';vizElement.style.maxWidth='1450px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='687px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='520px';vizElement.style.maxWidth='1450px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='687px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+<div class="flexcontainer" id="article">
+  Out of 14 tools, only 1 was able to capture all criteria in the Climate Risk Tool Matrix. Surprisingly, most of the sample struggled to achieve a similar degree of well-roundedness, as most tools only achieved a middle to low ranking in the risk category. Many tools are seen communicating climate change in a highly visual form, but most fall short of showing actual risk information that is relevant to economic or climate-related circumstances. Another finding is that the two Canadian-focused tools fell short of reflecting a range of key criteria in all categories, suggesting that practices implemented in higher ranked tools have yet to be used in Canada. 
+
+    <br><br>
+    To fill this gap, key practices and features that captured criteria across the sample were observed.  We synthesized key practices for risk, communication and visualization from FloodFactor.com, Bloomberg Cities Hit Hardest, and Hell and High Water, respectively. These leading tools hold considerable knowledge to fill what’s missing in Canada and can help address this major gap in communication. Specifically:
+
+    <ul>
+    <li> <a id='ffa' target="_blank" href="https://floodfactor.com/">FloodFactor.com</a> – This tool is the most focused in risk as well as the most well-rounded. FloodFactor is a tailored portfolio of potential flood risk information made available for any address in the United States. Much like a financial portfolio, several components break down climate risk through local flood maps, climate projections and creative visuals to capture the full scope of future flood risk, all the way down to the postal-code level.
+        </li> <br>
+    <li> <a id='bba'href="https://www.bloomberg.com/graphics/2021-cities-climate-victims/">Bloomberg Cities Hit Hardest</a> - This tool is the most focused in climate change communication. Bloomberg Cities Hit Hardest shifts the weight of climate change from global to local. Users are guided through stories, climate data and visuals with “scrollytelling”, a transition technique to populate data elements as the user scrolls through text. The intuitive use of scrolling lets readers understand climate data by showing stories on how flood risk for city populations are threatening cultural sites, public infrastructure, and increasing the risk of mass migration. </li> <br>
+    <li><a id='hha' href="https://projects.propublica.org/houston/">Hell and High Water</a> – This tool is the most focused in visualization. Hell and High Water is evocative by showing the severity of hurricane-caused storm surges for Houston, Texas. With 3-D animation, hurricane scenarios and investigative reporting by ProPublica, this high-powered tool is dense with alarming flood maps, illuminating narratives and community worries about withstanding the next big storm. Hell and High Water innovatively conveys the complexity of flood maps, climate data and human stories in a visually refined form.  </li> 
+    </ul>
+    The top performing tools hold much to learn for Canadian tools – we can see we’re only scratching the surface of what can be done to enhance communication of climate risks. That said, if only a few improvements are made with our documented lessons to ‘close the distance’, Canadian communities will have a better chance to reject climate change and take action. British Columbia residents should be able to find future flood risk in their area and choose what home or place of business is least likely to flood. Populations in Winnipeg and Toronto should know how smoke-filled skies can affect their long-term health and what steps they can do to prevent adverse effects. More frequent and severe Atlantic storms have yet to be reimagined in a webpage where users see how different scenarios affect their community in Halifax or St. John’s. It’s clear that as Canadians endure more severe natural disasters, more can be done to communicate and create opportunities for individuals, communities, and governments to prevent the worst of climate change. In this case, it could only be a matter of revealing the risks we already face. 
+    <div id="article">With the Climate Risk Tool Matrix below, select a leading tool and click on a <u>Criterion</u> to see how key practices were observed in the study.
+</div>
+  </div> 
+
+<div id="footer">
+  <h3>Methodology</h3>
+  Study data was collected from January 2020 to April 2022 and descriptions may not reflect up-to-date versions of the study sample. Results figure was created using Tableau Public and the Climate Risk Tool Matrix interface is built through D3.js and JQuery. Animated images were produced with ScreenToGif, and all images were collected from publically available web addresses.    
+</div>
+<!-- Tool Button(s) component -->
+
+<div class="buttonflex">
+<div class="tbutton" id="ff"><h3>FloodFactor.com</h3></div>
+<div class="tbutton" id="bb"><h3>Bloomberg Cities Hit Hardest</h3></div>
+<div class="tbutton" id="hh"><h3>Hell and High Water</h3></div>
+</div>
+
+<!-- Tooltips & Divs -->
+
+  <div id="landingtooltip" class="hidden">
+  <p id="index"></p>
+  <p><span id="leadCap"></span></p>
+  <p><span id="fftoolCap"></span></p>
+</div>
+<div id="fftooltip" class="hidden">
+  <p><strong id="index"></strong></p>
+  <p><span id="leadCap"></span></p>
+  <p><span id="fftoolCap"></span></p>
+</div>
+<div id="bbtooltip" class="hidden">
+  <p><strong id="bbindex"></strong></p>
+  <p><span id="bbleadCap"></span></p> 
+  <p><span id="bbtoolCap"></span></p>
+</div>
+<div id="hhtooltip" class="hidden">
+  <p><strong id="hhindex"></strong></p>
+  <p><span id="hhleadCap"></span></p>
+  <p><span id="hhtoolCap"></span></p>
+</div>
+
+
+<script>
+
+///////// Table Component /////////// 
+
+// create tabulate function to allow different data columns to be added/removed
+
+var tabulate = function (data,columns) {
+  var table = d3.select('body').append('table')
+ // change table position here
+  .attr("id", "table") 
+
+  .style("border-collapse", "collapse")
+  .style("border", "2px black solid")
+	var thead = table.append('thead')
+
+
+// create columns and their labels
+
+	thead.append('tr')
+	  .selectAll('th')
+	    .data(columns)
+	    .enter()
+	  .append('th')
+      
+	    .text(function (d) { return d })
+
+ 
+// Nest data to merge Category cells, and create table with td and tr
+
+var nested_data = d3.nest()
+  .key(function(d) {
+    return d.Category;
+  }).entries(data);
+
+      nested_data.forEach(function (d) {
+    var rowspan = d.values.length;
+    d.values.forEach(function (val, index) {
+        var tr = thead.append("tr");
+        if (index == 0) {
+            tr.append("td")
+                .attr("rowspan", rowspan)
+                .attr("id", "rowspan")
+                .text(val.Category);
+        }
+        tr.append("td")
+            .text(val.Criterion);
+   });
+});
+
+// attribute id of data index & ffcell class to each table cell for tooltip & file load
+d3.selectAll("td")
+.attr('class', 'ffcell')
+.attr("id", function(d, i) {
+  return i;
+})
+
+
+
+// Load captions from dataset (Caption Column)
+
+var caption = [];
+caption = data.map((d) => {
+	return {Cap:d.Caption};
+})
+
+// map caption to string (Caption Column)
+
+var capString = caption.map(function(caption) {
+  return caption['Cap']
+});
+
+// Load captions from dataset (Caption Column)
+
+var critCap = [];
+critCap = data.map((d) => {
+	return {critCap:d.Criterion};
+})
+
+// map caption to string (Caption Column)
+
+var critString = critCap.map(function(critCap) {
+  return critCap['critCap']
+});
+
+// Load captions from dataset (ff Column)
+
+var ffcaption = [];
+ffcaption = data.map((d) => {
+	return {ffCap:d.ffCap};
+})
+
+// map caption to string (ff Column)
+
+var ffString = ffcaption.map(function(ffcaption) {
+  return ffcaption['ffCap']
+});
+
+// Load captions from dataset (bb Column)
+
+
+var bbcaption = [];
+bbcaption = data.map((d) => {
+	return {bbCap:d.bbCap};
+})
+
+// map caption to string (bb  Column)
+
+var bbString = bbcaption.map(function(bbcaption) {
+  return bbcaption['bbCap']
+});
+
+// Load captions from dataset (hh Column)
+
+var hhcaption = [];
+hhcaption = data.map((d) => {
+	return {hhCap:d.hhCap};
+})
+
+// map caption to string (hh  Column)
+
+var hhString = hhcaption.map(function(hhcaption) {
+  return hhcaption['hhCap']
+});
+
+
+var cellWidth = d3.select('.ffcell').style('width');
+var cellHeight = d3.select('.ffcell').style('height');
+
+var tdx = d3.select('.ffcell').attr('cx')
+var tdy = d3.select('.ffcell').attr('cy')
+  
+// colour each category, make 'glow' effect & attribute tooltip functions to cells
+
+d3.selectAll('td').attr('class', 'ffcell')
+
+      .style('background', function(d, i) {
+          if (i < 15) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 22) {
+              return "#2085c5"; // communication colours
+          } 
+          else {
+              return "#ff9714"; // data vis colours
+          }
+          
+        })
+        .style("opacity","85%") // set cell opacity
+        .style('box-shadow', '0px 0px 0px') 
+        
+
+
+
+        .on("mouseover", function(d,i) {
+            d3.select(this)
+
+         
+
+                .style('transition-duration', '0.05s') 
+                .style("opacity","100%") // raise opacity for 'glow' effect
+                .style('box-shadow', '0px 0px 7px');
+// apply four tooltips to cells, one for landing page and rest for tools
+
+
+
+
+   var pos = d3.select(this).node().getBoundingClientRect()
+
+
+//////////// LANDING TOOLTIP //////////////
+
+       d3.select('#landingtooltip')
+      .classed("hidden", false)
+      .html("<p id='index'> " + critText + "<br><br>" + "</p>" + "<p id='leadCap'>"  + "<br><br></p>" + "<br>" + "<p id='fftoolCap'>"+ ffText +"<br><br></p>")
+     
+      var movetip = d3.select('#landingtooltip');
+
+      if (window.innerWidth < 1840) {
+movetip
+      .style("left", `${(pos['x'] - 225)}px`)
+      .style("top", `${(window.pageYOffset  + pos['y'] - 75)}px`)
+}
+      else {
+movetip
+      .style("left", `${(pos['x'] + 160)}px`)
+      .style("top", `${(window.pageYOffset  + pos['y'] - 55)}px`)
+}
+
+      var critText = d3.select('#index')
+      .text(function(d) {
+        if (i == 0) {// ECONOMIC RISK 
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+           d3.select('#landingtooltip').classed('stubborn', false)
+           return (critString[0])
+        }
+        if (i == 2) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[1])
+        }
+        if (i == 3) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[2])
+        }
+        if (i == 4) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[3])
+        }
+        if (i == 5) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[4])
+        }
+        if (i == 6) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[5])
+        }
+        if (i == 7) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[7])
+        }
+        if (i == 10) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[8])
+        }
+        if (i == 11) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[9])
+        }
+        if (i == 12) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[10])
+        }
+        if (i == 13) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[11])
+        }
+        if (i == 14) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[13])
+        }
+        if (i == 17) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[14])
+        }
+        if (i == 18) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[15])
+        }
+        if (i == 19) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[16])
+        }
+        if (i == 20) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[17])
+        }
+        if (i == 21) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[19])
+        }
+        if (i == 24) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[20])
+        }
+        if (i == 25) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[21])
+        }
+        if (i == 26) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[22])
+        }
+        if (i == 27) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[23])
+        }
+        if (i == 28) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[24])
+        }
+        if (i == 29) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[25])
+        }
+      })
+
+
+      var capText = d3.select('#leadCap')
+      .text(function(d) {
+        if (i == 0) {// ECONOMIC RISK 
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+           d3.select('#landingtooltip').classed('stubborn', false)
+           return ('Definition: ' + capString[0])
+        }
+        if (i == 2) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[1])
+        }
+        if (i == 3) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[2])
+        }
+        if (i == 4) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[3])
+        }
+        if (i == 5) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[4])
+        }
+        if (i == 6) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[5])
+        }
+        if (i == 7) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[7])
+        }
+        if (i == 10) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[8])
+        }
+        if (i == 11) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[9])
+        }
+        if (i == 12) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[10])
+        }
+        if (i == 13) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[11])
+        }
+        if (i == 14) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[13])
+        }
+        if (i == 17) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[14])
+        }
+        if (i == 18) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[15])
+        }
+        if (i == 19) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[16])
+        }
+        if (i == 20) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[17])
+        }
+        if (i == 21) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[19])
+        }
+        if (i == 24) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[20])
+        }
+        if (i == 25) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[21])
+        }
+        if (i == 26) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[22])
+        }
+        if (i == 27) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[23])
+        }
+        if (i == 28) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[24])
+        }
+        if (i == 29) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return ('Definition: ' + capString[25])
+        }
+      })
+
+      var ffText = d3.select('#fftoolCap')
+      .text(function(d) {
+        if (i == 1) {
+          return ('Observation: ' + ffString[0])
+        }
+        if (i == 2) {
+          return ('Observation: ' + ffString[1])
+        }
+        if (i == 3) {
+          return ('Observation: ' + ffString[2])
+        }
+        if (i == 4) {
+          return ('Observation: ' + ffString[3])
+        }
+        if (i == 5) {
+          return ('Observation: ' + ffString[4])
+        }
+        if (i == 6) {
+          return ('Observation: ' + ffString[5])
+        }
+        if (i == 7) {
+          return ('Observation: ' + ffString[6])
+        }
+        if (i == 9) {
+          return ('Observation: ' + ffString[7])
+        }
+        if (i == 10) {
+          return ('Observation: ' + ffString[8])
+        }
+        if (i == 11) {
+          return ('Observation: ' + ffString[9])
+        }
+        if (i == 12) {
+          return ('Observation: ' + ffString[10])
+        }
+        if (i == 13) {
+          return ('Observation: ' + ffString[11])
+        }
+        if (i == 14) {
+          return ('Observation: ' + ffString[12])
+        }
+        if (i == 16) {
+          return ('Observation: ' + ffString[13])
+        }
+        if (i == 17) {
+          return ('Observation: ' + ffString[14])
+        }
+        if (i == 18) {
+          return ('Observation: ' + ffString[15])
+        }
+        if (i == 19) {
+          return ('Observation: ' + ffString[16])
+        }
+        if (i == 20) {
+          return ('Observation: ' + ffString[17])
+        }
+        if (i == 21) {
+          return ('Observation: ' + ffString[18])
+        }
+        if (i == 23) {
+          return ('Observation: ' + ffString[19])
+        }
+        if (i == 24) {
+          return ('Observation: ' + ffString[20])
+        }
+        if (i == 25) {
+          return ('Observation: ' + ffString[21])
+        }
+        if (i == 26) {
+          return ('Observation: ' + ffString[22])
+        }
+        if (i == 27) {
+          return ('Observation: ' + ffString[23])
+        }
+        if (i == 28) {
+          return ('Observation: ' + ffString[24])
+        }
+        if (i == 29) {
+          return ('Observation: ' + ffString[25])
+        }
+      }) 
+
+/////////// FLOODFACTOR TOOLTIP ///////////
+
+d3.select('#fftooltip')
+      .classed("stubborn", false)
+      .html("<p id='index'>" + critCap + "<br><br></p>" + "<p id='leadCap'>"  + "<br><br></p>" + "<br>" + "<p id='fftoolCap'>"+ ffText +"<br><br></p>")
+      
+      var movetip = d3.select('#fftooltip');
+
+      if (window.innerWidth < 1840) {
+movetip
+      .style("left", `${(pos['x'] - 225)}px`)
+      .style("top", `${(window.pageYOffset  + pos['y'] - 75)}px`)
+}
+      else {
+movetip
+      .style("left", `${(pos['x'] + 160)}px`)
+      .style("top", `${(window.pageYOffset  + pos['y'] - 75)}px`)
+}
+
+      var critText = d3.select('#index')
+      .text(function(d) {
+        if (i == 0) {// ECONOMIC RISK 
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+           d3.select('#landingtooltip').classed('stubborn', false)
+           return (critString[0])
+        }
+        if (i == 2) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[1])
+        }
+        if (i == 3) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[2])
+        }
+        if (i == 4) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[3])
+        }
+        if (i == 5) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[4])
+        }
+        if (i == 6) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[5])
+        }
+        if (i == 7) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[7])
+        }
+        if (i == 10) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[8])
+        }
+        if (i == 11) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[9])
+        }
+        if (i == 12) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[10])
+        }
+        if (i == 13) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[11])
+        }
+        if (i == 14) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[13])
+        }
+        if (i == 17) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[14])
+        }
+        if (i == 18) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[15])
+        }
+        if (i == 19) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[16])
+        }
+        if (i == 20) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[17])
+        }
+        if (i == 21) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[19])
+        }
+        if (i == 24) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[20])
+        }
+        if (i == 25) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[21])
+        }
+        if (i == 26) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[22])
+        }
+        if (i == 27) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[23])
+        }
+        if (i == 28) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[24])
+        }
+        if (i == 29) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[25])
+        }
+      })
+
+
+      var capText = d3.select('#leadCap')
+      .text(function(d) {
+        if (i == 0) {  // ECONOMIC RISK 
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+          return ('Definition: ' + capString[0])
+        }
+        if (i == 2) {
+          return ('Definition: ' + capString[1])
+        }
+        if (i == 3) {
+          return ('Definition: ' + capString[2])
+        }
+        if (i == 4) {
+          return ('Definition: ' + capString[3])
+        }
+        if (i == 5) {
+          return ('Definition: ' + capString[4])
+        }
+        if (i == 6) {
+          return ('Definition: ' + capString[5])
+        }
+        if (i == 7) {
+          return ('Definition: ' + capString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          return ('Definition: ' + capString[7])
+        }
+        if (i == 10) {
+          return ('Definition: ' + capString[8])
+        }
+        if (i == 11) {
+          return ('Definition: ' + capString[9])
+        }
+        if (i == 12) {
+          return ('Definition: ' + capString[10])
+        }
+        if (i == 13) {
+          return ('Definition: ' + capString[11])
+        }
+        if (i == 14) {
+          return ('Definition: ' + capString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          return ('Definition: ' + capString[13])
+        }
+        if (i == 17) {
+          return ('Definition: ' + capString[14])
+        }
+        if (i == 18) {
+          return ('Definition: ' + capString[15])
+        }
+        if (i == 19) {
+          return ('Definition: ' + capString[16])
+        }
+        if (i == 20) {
+          return ('Definition: ' + capString[17])
+        }
+        if (i == 21) {
+          return ('Definition: ' + capString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          return ('Definition: ' + capString[19])
+        }
+        if (i == 24) {
+          return ('Definition: ' + capString[20])
+        }
+        if (i == 25) {
+          return ('Definition: ' + capString[21])
+        }
+        if (i == 26) {
+          return ('Definition: ' + capString[22])
+        }
+        if (i == 27) {
+          return ('Definition: ' + capString[23])
+        }
+        if (i == 28) {
+          return ('Definition: ' + capString[24])
+        }
+        if (i == 29) {
+          return ('Definition: ' + capString[25])
+        }
+      })
+
+      var ffText = d3.select('#fftoolCap')
+      .text(function(d) {
+        if (i == 0) {  // ECONOMIC RISK 
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+          return ('Observation: ' + ffString[0])
+        }
+        if (i == 2) {
+          return ('Observation: ' + ffString[1])
+        }
+        if (i == 3) {
+          return ('Observation: ' + ffString[2])
+        }
+        if (i == 4) {
+          return ('Observation: ' + ffString[3])
+        }
+        if (i == 5) {
+          return ('Observation: ' + ffString[4])
+        }
+        if (i == 6) {
+          return ('Observation: ' + ffString[5])
+        }
+        if (i == 7) {
+          return ('Observation: ' + ffString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          return ('Observation: ' + ffString[7])
+        }
+        if (i == 10) {
+          return ('Observation: ' + ffString[8])
+        }
+        if (i == 11) {
+          return ('Observation: ' + ffString[9])
+        }
+        if (i == 12) {
+          return ('Observation: ' + ffString[10])
+        }
+        if (i == 13) {
+          return ('Observation: ' + ffString[11])
+        }
+        if (i == 14) {
+          return ('Observation: ' + ffString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          return ('Observation: ' + ffString[13])
+        }
+        if (i == 17) {
+          return ('Observation: ' + ffString[14])
+        }
+        if (i == 18) {
+          return ('Observation: ' + ffString[15])
+        }
+        if (i == 19) {
+          return ('Observation: ' + ffString[16])
+        }
+        if (i == 20) {
+          return ('Observation: ' + ffString[17])
+        }
+        if (i == 21) {
+          return ('Observation: ' + ffString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#fftooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          return ('Observation: ' + ffString[19])
+        }
+        if (i == 24) {
+          return ('Observation: ' + ffString[20])
+        }
+        if (i == 25) {
+          return ('Observation: ' + ffString[21])
+        }
+        if (i == 26) {
+          return ('Observation: ' + ffString[22])
+        }
+        if (i == 27) {
+          return ('Observation: ' + ffString[23])
+        }
+        if (i == 28) {
+          return ('Observation: ' + ffString[24])
+        }
+        if (i == 29) {
+          return ('Observation: ' + ffString[25])
+        }
+      }) 
+
+///////////// BLOOMBERG TOOLTIP  //////////////////
+
+d3.select('#bbtooltip')
+       .classed("stubborn", false) // false = displayed
+       .html("<p id='bbindex'>" + critText + "<br><br></p>" + "<p id='bbleadCap'> "+ bbcapText  + "<br><br></p>" + "<br>" + "<p id='bbtoolCap'>"+ bbText +"<br><br></p>")
+
+
+       var movetip = d3.select('#bbtooltip');
+
+if (window.innerWidth < 1840) {
+movetip
+.style("left", `${(pos['x'] - 225)}px`)
+.style("top", `${(window.pageYOffset  + pos['y'] - 75)}px`)
+}
+else {
+movetip
+.style("left", `${(pos['x'] + 160)}px`)
+.style("top", `${(window.pageYOffset  + pos['y'] - 75)}px`)
+}
+
+      var critText = d3.select('#bbindex')
+      .text(function(d) {
+        if (i == 0) {// ECONOMIC RISK 
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+           d3.select('#bbtooltip').classed('stubborn', false)
+           return (critString[0])
+        }
+        if (i == 2) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[1])
+        }
+        if (i == 3) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[2])
+        }
+        if (i == 4) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[3])
+        }
+        if (i == 5) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[4])
+        }
+        if (i == 6) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[5])
+        }
+        if (i == 7) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[7])
+        }
+        if (i == 10) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[8])
+        }
+        if (i == 11) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[9])
+        }
+        if (i == 12) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[10])
+        }
+        if (i == 13) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[11])
+        }
+        if (i == 14) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[13])
+        }
+        if (i == 17) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[14])
+        }
+        if (i == 18) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[15])
+        }
+        if (i == 19) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[16])
+        }
+        if (i == 20) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[17])
+        }
+        if (i == 21) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[19])
+        }
+        if (i == 24) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[20])
+        }
+        if (i == 25) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[21])
+        }
+        if (i == 26) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[22])
+        }
+        if (i == 27) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[23])
+        }
+        if (i == 28) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[24])
+        }
+        if (i == 29) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[25])
+        }
+      })
+
+
+
+// labelling bb to lead caption & tool caption is redundant 
+
+      var bbcapText = d3.select('#bbleadCap')
+      .text(function(d) {
+        if (i == 0) {  // ECONOMIC RISK 
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+          return ('Definition: ' + capString[0])
+        }
+        if (i == 2) {
+          return ('Definition: ' + capString[1])
+        }
+        if (i == 3) {
+          return ('Definition: ' + capString[2])
+        }
+        if (i == 4) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 5) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 6) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 7) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          return ('Definition: ' + capString[7])
+        }
+        if (i == 10) {
+          return ('Definition: ' + capString[8])
+        }
+        if (i == 11) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 12) {
+          return ('Definition: ' + capString[10])
+        }
+        if (i == 13) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 14) {
+          return ('Definition: ' + capString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          return ('Definition: ' + capString[13])
+        }
+        if (i == 17) {
+          return ('Definition: ' + capString[14])
+        }
+        if (i == 18) {
+          return ('Definition: ' + capString[15])
+        }
+        if (i == 19) {
+          return ('Definition: ' + capString[16])
+        }
+        if (i == 20) {
+          return ('Definition: ' + capString[17])
+        }
+        if (i == 21) {
+          return ('Definition: ' + capString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          return ('Definition: ' + capString[19])
+        }
+        if (i == 24) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 25) {
+          return ('Definition: ' + capString[21])
+        }
+        if (i == 26) {
+          return ('Definition: ' + capString[22])
+        }
+        if (i == 27) {
+          return ('Definition: ' + capString[23])
+        }
+        if (i == 28) {
+          return ('Definition: ' + capString[24])
+        }
+        if (i == 29) {
+          return ('Definition: ' + capString[25])
+        }
+      })
+
+
+      var bbText = d3.select('#bbtoolCap')
+      // .style('visibility', 'hidden')
+      .text(function(d) {
+        if (i == 0) {  // ECONOMIC RISK 
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+          return ('Observation: ' + bbString[0])
+        }
+        if (i == 2) {
+          return ('Observation: ' + bbString[1])
+        }
+        if (i == 3) {
+          return ('Observation: ' + bbString[2])
+        }
+        if (i == 4) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 5) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 6) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 7) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          return ('Observation: ' + bbString[7])
+        }
+        if (i == 10) {
+          return ('Observation: ' + bbString[8])
+        }
+        if (i == 11) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 12) {
+          return ('Observation: ' + bbString[10])
+        }
+        if (i == 13) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 14) {
+          return ('Observation: ' + bbString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          return ('Observation: ' + bbString[13])
+        }
+        if (i == 17) {
+          return ('Observation: ' + bbString[14])
+        }
+        if (i == 18) {
+          return ('Observation: ' + bbString[15])
+        }
+        if (i == 19) {
+          return ('Observation: ' + bbString[16])
+        }
+        if (i == 20) {
+          return ('Observation: ' + bbString[17])
+        }
+        if (i == 21) {
+          return ('Observation: ' + bbString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          return ('Observation: ' + bbString[19])
+        }
+        if (i == 24) {
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 25) {
+          return ('Observation: ' + bbString[21])
+        }
+        if (i == 26) {
+          return ('Observation: ' + bbString[22])
+        }
+        if (i == 27) {
+          return ('Observation: ' + bbString[23])
+        }
+        if (i == 28) {
+          return ('Observation: ' + bbString[24])
+        }
+        if (i == 29) {
+          return ('Observation: ' + bbString[25])
+        }
+      })
+
+///////////// HELL AND HIGHWATER TOOLTIP  //////////////////
+
+d3.select('#hhtooltip')
+       .classed("stubborn", false) // false = displayed
+       .html("<p id='hhindex'>" + critText + "<br><br></p>" + "<p id='hhleadCap'> "+ hhcapText  + "<br><br></p>" + "<br>" + "<p id='hhtoolCap'>"+ hhText +"<br><br></p>")
+
+       var movetip = d3.select('#hhtooltip');
+
+if (window.innerWidth < 1840) {
+movetip
+.style("left", `${(pos['x'] - 225)}px`)
+.style("top", `${(window.pageYOffset  + pos['y'] - 75)}px`)
+}
+else {
+movetip
+.style("left", `${(pos['x'] + 160)}px`)
+.style("top", `${(window.pageYOffset  + pos['y'] - 75)}px`)
+}
+
+
+      var critText = d3.select('#hhindex')
+      .text(function(d) {
+        if (i == 0) {// ECONOMIC RISK 
+          d3.select('#bbtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+           d3.select('#bbtooltip').classed('stubborn', false)
+           return (critString[0])
+        }
+        if (i == 2) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[1])
+        }
+        if (i == 3) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[2])
+        }
+        if (i == 4) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[3])
+        }
+        if (i == 5) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[4])
+        }
+        if (i == 6) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[5])
+        }
+        if (i == 7) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[7])
+        }
+        if (i == 10) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[8])
+        }
+        if (i == 11) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[9])
+        }
+        if (i == 12) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[10])
+        }
+        if (i == 13) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[11])
+        }
+        if (i == 14) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[13])
+        }
+        if (i == 17) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[14])
+        }
+        if (i == 18) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[15])
+        }
+        if (i == 19) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[16])
+        }
+        if (i == 20) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[17])
+        }
+        if (i == 21) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#landingtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[19])
+        }
+        if (i == 24) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[20])
+        }
+        if (i == 25) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[21])
+        }
+        if (i == 26) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[22])
+        }
+        if (i == 27) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[23])
+        }
+        if (i == 28) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[24])
+        }
+        if (i == 29) {
+          d3.select('#landingtooltip').classed('stubborn', false)
+          return (critString[25])
+        }
+      })
+
+
+// labelling hh to lead caption & tool caption is redundant 
+
+      var hhcapText = d3.select('#hhleadCap')
+      .text(function(d) {
+        if (i == 0) {  // ECONOMIC RISK 
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+          return ('Definition: ' + capString[0])
+        }
+        if (i == 2) {
+          return ('Definition: ' + capString[1])
+        }
+        if (i == 3) {
+          return ('Definition: ' + capString[2])
+        }
+        if (i == 4) {
+          return ('Definition: ' + capString[3])
+        }
+        if (i == 5) {
+          return ('Definition: ' + capString[4])
+        }
+        if (i == 6) {
+          return ('Definition: ' + capString[5])
+        }
+        if (i == 7) {
+          return ('Definition: ' + capString[6])
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          return ('Definition: ' + capString[7])
+        }
+        if (i == 10) {
+          return ('Definition: ' + capString[8])
+        }
+        if (i == 11) {
+          return ('Definition: ' + capString[9])
+        }
+        if (i == 12) {
+          return ('Definition: ' + capString[10])
+        }
+        if (i == 13) {
+          return ('Definition: ' + capString[11])
+        }
+        if (i == 14) {
+          return ('Definition: ' + capString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          return ('Definition: ' + capString[13])
+        }
+        if (i == 17) {
+          return ('Definition: ' + capString[14])
+        }
+        if (i == 18) {
+          return ('Definition: ' + capString[15])
+        }
+        if (i == 19) {
+          return ('Definition: ' + capString[16])
+        }
+        if (i == 20) {
+          return ('Definition: ' + capString[17])
+        }
+        if (i == 21) {
+          return ('Definition: ' + capString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          return ('Definition: ' + capString[19])
+        }
+        if (i == 24) {
+          return ('Definition: ' + capString[20])
+        }
+        if (i == 25) {
+          return ('Definition: ' + capString[21])
+        }
+        if (i == 26) {
+          return ('Definition: ' + capString[22])
+        }
+        if (i == 27) {
+          return ('Definition: ' + capString[23])
+        }
+        if (i == 28) {
+          return ('Definition: ' + capString[24])
+        }
+        if (i == 29) {
+          return ('Definition: ' + capString[25])
+        }
+      })
+
+
+      var hhText = d3.select('#hhtoolCap')
+      // .style('visibility', 'hidden')
+      .text(function(d) {
+        if (i == 0) {  // ECONOMIC RISK 
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 1) {
+          return ('Observation: ' + hhString[0])
+        }
+        if (i == 2) {
+          return ('Observation: ' + hhString[1])
+        }
+        if (i == 3) {
+          return ('Observation: ' + hhString[2])
+        }
+        if (i == 4) {
+          return ('Observation: ' + hhString[3])
+        }
+        if (i == 5) {
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 6) {
+          return ('Observation: ' + hhString[5])
+        }
+        if (i == 7) {
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 8) { // CLIMATE RISK
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 9) {
+          return ('Observation: ' + hhString[7])
+        }
+        if (i == 10) {
+          return ('Observation: ' + hhString[8])
+        }
+        if (i == 11) {
+          return ('Observation: ' + hhString[9])
+        }
+        if (i == 12) {
+          return ('Observation: ' + hhString[10])
+        }
+        if (i == 13) {
+          return ('Observation: ' + hhString[11])
+        }
+        if (i == 14) {
+          return ('Observation: ' + hhString[12])
+        }
+        if (i == 15) { // CLIMATE COMMUNICATION
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 16) {
+          return ('Observation: ' + hhString[13])
+        }
+        if (i == 17) {
+          return ('Observation: ' + hhString[14])
+        }
+        if (i == 18) {
+          return ('Observation: ' + hhString[15])
+        }
+        if (i == 19) {
+          return ('Observation: ' + hhString[16])
+        }
+        if (i == 20) {
+          return ('Observation: ' + hhString[17])
+        }
+        if (i == 21) {
+          return ('Observation: ' + hhString[18])
+        }
+        if (i == 22) { // DATA VISUALIZATION
+          d3.select('#hhtooltip').classed('stubborn', true)
+        }
+        if (i == 23) {
+          return ('Observation: ' + hhString[19])
+        }
+        if (i == 24) {
+          return ('Observation: ' + hhString[20])
+        }
+        if (i == 25) {
+          return ('Observation: ' + hhString[21])
+        }
+        if (i == 26) {
+          return ('Observation: ' + hhString[22])
+        }
+        if (i == 27) {
+          return ('Observation: ' + hhString[23])
+        }
+        if (i == 28) {
+          return ('Observation: ' + hhString[24])
+        }
+        if (i == 29) {
+          return ('Observation: ' + hhString[25])
+        }
+      })
+
+
+//////////// end tooltip functions /////////////
+      
+      
+////////////////// LOAD TABLE IMAGE FILES /////////////////
+
+///////////// FLOODFACTOR.COM FILES /////////////////
+
+    d3.selectAll('.ffcell')
+     // just need to access cells from this line
+    .on("click", function(){
+
+      var criterionID = d3.select(this).attr("id")
+
+    
+      //new gif file
+
+      if (criterionID == "1") {
+
+      d3.selectAll('image').remove()      
+    // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+
+    .attr("xlink:href", "images/ff/ffHazard.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "2") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffMagnitude.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "3") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffTime.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+      if (criterionID == "4") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffLikelihood.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "5") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffMonetary.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "6") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffBaseline.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+      if (criterionID == "7") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffScore.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "9") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffProjections.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "10") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffVariables.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      if (criterionID == "11") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffDamage.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "12") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffSolutions.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "13") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffUncertainty.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+      if (criterionID == "14") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffScale.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "16") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffClarity.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "17") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffAction.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+      //end of file load
+      if (criterionID == "18") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffAudience.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "19") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffFraming.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+      if (criterionID == "20") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffRelevancy.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "21") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffEase.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "23") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffPresentation.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      if (criterionID == "24") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffFilter.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "25") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffDepth.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "26") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffAsethetic.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+      if (criterionID == "27") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffNarrative.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}  
+
+     // End file update     
+
+      if (criterionID == "28") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffSocial.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+
+      // End file update 
+
+          if (criterionID == "29") {
+
+      d3.selectAll('image').remove() // remove previous gif file
+	
+      //Add a data value
+
+		var svg = g.append("svg:image")
+    .attr("xlink:href", "images/ff/ffTrust.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+					}
+      //end of file load
+    })    
+
+///////////// BLOOMBERG FILES /////////////////
+
+  d3.selectAll('.bbcell') // just need to access cells from this line
+    .on("click", function(){
+
+      var criterionID = d3.select(this).attr("id")
+    
+      //new gif file
+
+      if (criterionID == "1") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbHazard.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "2") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbMagnitude.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "3") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbTime.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+if (criterionID == "9") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbProjections.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "10") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbVariables.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    } 
+
+if (criterionID == "12") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbSolutions.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+if (criterionID == "14") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbScale.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "16") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbClarity.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "17") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbAction.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+//end of file load
+if (criterionID == "18") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbAudience.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "19") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbFraming.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+if (criterionID == "20") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbRelevancy.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "21") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbEase.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "23") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbPresentation.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }   
+
+if (criterionID == "25") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbDepth.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "26") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbAsethetic.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+if (criterionID == "27") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbNarrative.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "28") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbSocial.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "29") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/bb/bbTrust.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+//end of file load
+
+    
+  })
+
+////// HELL AND HIGH WATER FILES ///////
+
+  d3.selectAll('.hhcell') // access cells from this line
+    .on("click", function(){
+
+      var criterionID = d3.select(this).attr("id")
+    
+      //new gif file
+
+      if (criterionID == "1") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhHazard.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "2") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhMagnitude.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "3") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhTime.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+    if (criterionID == "4") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhLikelihood.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+    if (criterionID == "6") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhBaseline.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+if (criterionID == "9") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhProjections.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "10") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhVariables.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    } 
+
+if (criterionID == "11") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhDamage.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+if (criterionID == "12") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhSolutions.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+if (criterionID == "13") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhUncertainty.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+if (criterionID == "14") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhScale.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "16") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhClarity.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "17") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhAction.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+//end of file load
+if (criterionID == "18") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhAudience.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "19") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhFraming.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+if (criterionID == "20") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhRelevancy.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "21") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhEase.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "23") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhPresentation.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }   
+
+
+    if (criterionID == "24") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhFilter.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }   
+
+if (criterionID == "25") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhDepth.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "26") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhAsethetic.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+if (criterionID == "27") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhNarrative.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }  
+
+// End file update     
+
+if (criterionID == "28") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhSocial.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+
+// End file update 
+
+    if (criterionID == "29") {
+
+d3.selectAll('image').remove() // remove previous gif file
+
+//Add a data value
+
+var svg = g.append("svg:image")
+.attr("xlink:href", "images/hh/hhTrust.gif")
+.attr("width", 1040)
+.attr("height", 1700)
+.attr("x", 0)
+.attr("y", -600);
+    }
+//end of file load
+
+    
+  })
+
+    
+  }) // Close file upload
+  
+
+        .on("mouseout", function(d, i){
+             d3.select(this)    
+          .style("opacity","85%")
+          d3.select('#landingtooltip')
+          .classed("hidden", true) // original way of hiding mouse
+          d3.select('#fftooltip')
+          .classed("stubborn", true) // use second 'hidden' class for same function
+          d3.select('#bbtooltip')
+          .classed("stubborn", true)
+          d3.select('#hhtooltip')
+          .classed("stubborn", true)
+          
+        })
+    
+
+
+  return table;
+}
+
+///////////// RUN TABLE FUNCTION  //////////////////
+
+d3.csv('data_master.csv',function (data) {
+	var columns = ['Category','Criterion']
+  tabulate(data,columns)
+})
+
+
+///////////// SVG component ///////////////////
+
+// Create SVG
+
+// var width = 1040,
+//     height = 620;
+
+
+
+var svg = d3.select("body").append("svg")
+    // .attr('max-width', '1040px')
+    // .attr('max-height', '620px')
+    .attr("width", '100%')
+    .attr("height", '100%')
+    .attr('viewBox', '0 0 1050 610')
+    ;   
+    
+var g = svg.append("g")
+
+
+///////////////// LANDING IMAGE  //////////////////////
+
+var img1 = g.append("svg:image")
+.attr("xlink:href", "images/landing.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+
+/////////////////////////////  BUTTON FUNCTIONS ////////////////////////////////
+
+///////////// FLOODFACTOR.COM BUTTON ///////////////
+
+    d3.select("#ff")
+
+    .on('mouseover', function() {
+      d3.select(this)
+
+    .style('transition-duration', '0.25s')
+    .style('opacity', '100%')
+    .style('box-shadow', '0px 0px 7px  #f41b64')
+    })
+    .on('mouseout', function() {
+      d3.select(this)
+    
+    .style('opacity', '80%')
+    .style('box-shadow', '0px 0px 0px')
+    })
+  
+    .on("click", function(){
+    
+    
+    // d3.select(this).classed('ffGlow', true)
+    // d3.select('#bb')
+    // .style('opacity', '80%')
+    // .style('box-shadow', '0px 0px 0px')
+
+    // d3.select('#hh').classed('hhGlow', false)
+    // .style('opacity', '80%')
+    // .style('box-shadow', '0px 0px 0px')
+
+
+    
+
+    d3.selectAll('image').transition().duration(50).remove() // remove active image
+
+    //update image to floodfactor
+
+    var img = g.append("svg:image")
+    .attr("xlink:href", "images/landing.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+
+
+    // remove table
+    d3.selectAll("table").remove()
+  
+    //add table
+
+    d3.csv('data_master.csv',function (data) {
+  	var columns = ['Category','Criterion']
+    tabulate(data,columns)
+    })
+  
+    d3.selectAll("td").attr('class', 'ffcell') // reclass cells for file upload functions
+  
+    // update tooltip mechanism 
+
+    d3.select('#landingtooltip').remove() // remove landing tooltip
+
+    d3.select('#fftooltip').classed('hidden', false) // make fftooltip active, others inactive
+    d3.select('#bbtooltip').classed('hidden', true)  
+    d3.select('#hhtooltip').classed('hidden', true)
+
+    d3.select('#fftooltip').classed('stubborn', true) // true = not displayed -- stubborn div fix
+
+
+    })
+
+///////////// BLOOMBERG CITIES HIT HARDEST BUTTON ///////////////
+
+    d3.select("#bb")
+
+    .on('mouseover', function() {
+      d3.select(this)
+      // .classed('bbGlow', true)
+    .style('transition-duration', '0.25s')
+    .style('opacity', '100%')
+    .style('box-shadow', '0px 0px 7px  #2085c5')
+    })
+    .on('mouseout', function() {
+      d3.select(this)
+      // .classed('bbGlow', false)
+    .style('opacity', '80%')
+    .style('box-shadow', '0px 0px 0px')
+    })
+    
+    .on("click", function(){
+
+    d3.selectAll('image').transition().duration(50).remove() // remove previous gif file
+
+
+    var img = g.append("svg:image")
+    .attr("xlink:href", "images/bb.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+
+    // remove table
+    d3.selectAll("table").remove()
+
+    // add new table
+    d3.csv('data_master.csv',function (data) {
+	var columns = ['Category','Criterion']
+  tabulate(data,columns)
+
+       
+  // change table id for tooltip, adjust colours
+  d3.selectAll("table").attr('id', 'table2')
+  d3.selectAll("td").attr('class', 'bbcell')
+  d3.selectAll('td')
+  .transition()
+  .duration(1000)
+  .style('background', function(d, i) {
+          if (i < 4) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 8) {
+              return "#5c5c5c"; // risk colours
+          }
+          if (i < 11) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 12) {
+              return "#5c5c5c"; // risk colours
+          }
+          if (i < 13) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 14) {
+              return "#5c5c5c"; // risk colours
+          }
+          if (i < 15) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 22) {
+              return "#2085c5"; // communication colours
+          } 
+          if (i < 24) {
+              return "#ff9714"; // communication colours
+          } 
+          if (i < 25) {
+              return "#5c5c5c"; // communication colours
+          } 
+          else {
+              return "#ff9714"; // data vis colours
+          }
+        });
+    })
+
+        // reclass all tooltips
+        d3.select('#landingtooltip').remove() 
+
+        d3.select('#fftooltip').classed('hidden', true) 
+        d3.select('#bbtooltip').classed('hidden', false)
+        d3.select('#hhtooltip').classed('hidden', true)
+
+        d3.select('#bbtooltip').classed('stubborn', true) // true = not displayed
+
+        
+
+              
+
+    
+  });
+
+///////////// HELL AND HIGH WATER BUTTON ///////////////
+
+    d3.select("#hh")
+
+    .on('mouseover', function() {
+      d3.select(this)
+    .style('transition-duration', '0.25s')
+    .style('opacity', '100%')
+    .style('box-shadow', '0px 0px 7px  #ff9714')
+    })
+    .on('mouseout', function() {
+      d3.select(this)
+    .style('opacity', '80%')
+    .style('box-shadow', '0px 0px 0px')
+    })
+
+    .on("click", function(){
+
+      d3.selectAll('image').transition().duration(50).remove() // remove previous gif file
+      
+    var img = g.append("svg:image")
+    .attr("xlink:href", "images/hh.gif")
+    .attr("width", 1040)
+    .attr("height", 1700)
+    .attr("x", 0)
+    .attr("y", -600);
+
+    //remove table
+
+    d3.selectAll("table").remove()
+
+
+    // add new table
+    d3.csv('data_master.csv',function (data) {
+	var columns = ['Category','Criterion']
+  tabulate(data,columns)
+
+
+  // change table id for tooltip, adjust colours
+  d3.selectAll("table").attr('id', 'table3')
+  d3.selectAll("td").attr('class', 'hhcell')
+  d3.selectAll('td')
+  .transition()
+  .duration(1000)
+  .style('background', function(d, i) {
+          if (i < 5) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 6) {
+              return "#5c5c5c"; // risk colours
+          }
+          if (i < 7) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 8) {
+              return "#5c5c5c"; // risk colours
+          }
+          if (i < 13) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 15) {
+              return "#f41b64"; // risk colours
+          }
+          if (i < 22) {
+              return "#2085c5"; // communication colours
+          } 
+          if (i < 24) {
+              return "#ff9714"; // communication colours
+          } 
+          else {
+              return "#ff9714"; // data vis colours
+          }
+        });
+
+
+
+    })
+
+    d3.select('#landingtooltip').remove() 
+
+    d3.select('#fftooltip').classed('hidden', true) 
+    d3.select('#bbtooltip').classed('hidden', true)
+    d3.select('#hhtooltip').classed('hidden', false)
+
+    d3.select('#hhtooltip').classed('stubborn', true) // true = not displayed
+
+    
+    })
+
+    
+
+</script>
+    
+</body>
+</html>
